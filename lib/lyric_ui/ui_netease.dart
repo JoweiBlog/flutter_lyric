@@ -11,6 +11,10 @@ class UINetease extends LyricUI {
   double bias;
   double lineGap;
   double inlineGap;
+  Color extColor;
+  Color lyricColor;
+  Color otherMainColor;
+  Color highlightColor;
   LyricAlign lyricAlign;
   LyricBaseLine lyricBaseLine;
   bool highlight;
@@ -23,6 +27,10 @@ class UINetease extends LyricUI {
       this.bias = 0.5,
       this.lineGap = 25,
       this.inlineGap = 25,
+      this.extColor = Colors.grey,
+      this.lyricColor = Colors.white,
+      this.otherMainColor = Colors.grey,
+      this.highlightColor = Colors.redAccent,
       this.lyricAlign = LyricAlign.CENTER,
       this.lyricBaseLine = LyricBaseLine.CENTER,
       this.highlight = true,
@@ -37,6 +45,10 @@ class UINetease extends LyricUI {
           lineGap: uiNetease.lineGap,
           inlineGap: uiNetease.inlineGap,
           lyricAlign: uiNetease.lyricAlign,
+          extColor: uiNetease.extColor,
+          lyricColor: uiNetease.lyricColor,
+          otherMainColor: uiNetease.otherMainColor,
+          highlightColor: uiNetease.highlightColor,
           lyricBaseLine: uiNetease.lyricBaseLine,
           highlight: uiNetease.highlight,
           highlightDirection: uiNetease.highlightDirection,
@@ -44,21 +56,21 @@ class UINetease extends LyricUI {
 
   @override
   TextStyle getPlayingExtTextStyle() =>
-      TextStyle(color: Colors.grey[300], fontSize: defaultExtSize);
+      TextStyle(color: extColor, fontSize: defaultExtSize);
 
   @override
   TextStyle getOtherExtTextStyle() => TextStyle(
-        color: Colors.grey[300],
+        color: extColor,
         fontSize: defaultExtSize,
       );
 
   @override
   TextStyle getOtherMainTextStyle() =>
-      TextStyle(color: Colors.grey[200], fontSize: otherMainSize);
+      TextStyle(color: otherMainColor, fontSize: otherMainSize);
 
   @override
   TextStyle getPlayingMainTextStyle() => TextStyle(
-        color: Colors.white,
+        color: lyricColor,
         fontSize: defaultSize,
       );
 
